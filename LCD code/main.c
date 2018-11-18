@@ -29,24 +29,15 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 #include <asf.h>
-#include "Pin_Declaration.h"
+#include "Riverdi.h"
 
-#define FT8_PDN ***   //POWER UP PIN IN LCD 
-
-void LCD_initialization(void)
-{
-	
-	ioport_disable_pin(FT8_PDN) //  0 --> PDN pin
-	
-}
 int main (void)
 {
-	ioport_init() // initialization of ioport
 	/* Insert system clock initialization code here (sysclk_init()). */
 	sysclk_init();
-
-
+	ioport_init();
 	board_init();
+	
 
 	/* Insert application code here, after the board has been initialized. */
-}
+	Riverdi_init();
