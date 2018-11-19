@@ -3,8 +3,11 @@
 
 //write 16 bits to Riverdi, start with sending address from MCU to TFT and then send data
 void Riverdi_write_16(uint32_t address,uint16_t data){
-	spi_write(SPI, (uint16_t)(address >> 16) | MEM_WRITE, spi_get_pcs(CS0), 0); //need to configure PCS,LASTXFER for fixed mode
-	spi_write(SPI, (uint16_t)(address), spi_get_pcs(CS0), 0); //as above
+	uint16_t first_address = (uint16_t)(address >> 16) | MEM_WRITE;
+	uint16_t second_address = (uint16_t)(address);
+	
+	spi_write(SPI, first_address, spi_get_pcs(CS0), 0); //need to configure PCS,LASTXFER for fixed mode
+	spi_write(SPI, second_address, spi_get_pcs(CS0), 0); //as above
 	spi_write(SPI, data, spi_get_pcs(CS0), 1); //as above
 }
 //---------------------------------------------------
