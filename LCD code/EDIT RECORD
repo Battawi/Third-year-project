@@ -2,5 +2,9 @@
 Updated main.c
 Merged Function_Declaration.h and Pin_Declarations.h into Riverdi.h
 Added Riverdi.c
+
 //  19/11/2018  //
 Uploaded Spi_functions.c
+
+// 20/11/2018 // (Rimo)
+Uploaded the 1st trial of the spi_integration.c
